@@ -1,7 +1,13 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { emailChanged } from '../actions';
 import { Card, CardSection, Input, Button } from './common';
 
 class LoginForm extends Component {
+  onEmailChanged(text) {
+    this.props.emailChanged(text);
+  }
+
   render() {
     return (
       <Card>
@@ -9,6 +15,7 @@ class LoginForm extends Component {
           <Input
             label='E-mail'
             placeholder='example@example.com'
+            onChangeText={this.onEmailChanged.bind(this)}
           />
         </CardSection>
         <CardSection>
@@ -28,4 +35,4 @@ class LoginForm extends Component {
   }
 }
 
-export default LoginForm;
+export default connect(null, { emailChanged })(LoginForm);
