@@ -9,7 +9,13 @@ const RouterComponent = () => (
         <Scene key='login' component={LoginForm} title='Please Login' />
       </Scene>
       <Scene key='main'>
-        <Scene key='employeeList' component={EmployeeList} title='Employees' />
+        <Scene 
+          onRight={() => console.log('OK')}
+          rightTitle='Add'
+          key='employeeList' 
+          component={EmployeeList} 
+          title='Employees' 
+        />
       </Scene>
     </Router>
 );
